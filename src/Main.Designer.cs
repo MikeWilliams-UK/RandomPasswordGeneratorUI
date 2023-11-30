@@ -30,7 +30,7 @@
         {
             IncludeNumbers = new CheckBox();
             PasswordLength = new NumericUpDown();
-            BeginWithLetter = new CheckBox();
+            BeginsWithLetter = new CheckBox();
             IncludeUpperCase = new CheckBox();
             IncludeLowerCase = new CheckBox();
             IncludeSymbols = new CheckBox();
@@ -71,25 +71,25 @@
             PasswordLength.TabIndex = 1;
             PasswordLength.Value = new decimal(new int[] { 16, 0, 0, 0 });
             // 
-            // BeginWithLetter
+            // BeginsWithLetter
             // 
-            BeginWithLetter.AutoSize = true;
-            BeginWithLetter.Checked = true;
-            BeginWithLetter.CheckState = CheckState.Checked;
-            BeginWithLetter.Location = new Point(15, 162);
-            BeginWithLetter.Margin = new Padding(4);
-            BeginWithLetter.Name = "BeginWithLetter";
-            BeginWithLetter.Size = new Size(154, 25);
-            BeginWithLetter.TabIndex = 2;
-            BeginWithLetter.Text = "Begin with a letter";
-            BeginWithLetter.UseVisualStyleBackColor = true;
+            BeginsWithLetter.AutoSize = true;
+            BeginsWithLetter.Checked = true;
+            BeginsWithLetter.CheckState = CheckState.Checked;
+            BeginsWithLetter.Location = new Point(15, 189);
+            BeginsWithLetter.Margin = new Padding(4);
+            BeginsWithLetter.Name = "BeginsWithLetter";
+            BeginsWithLetter.Size = new Size(161, 25);
+            BeginsWithLetter.TabIndex = 2;
+            BeginsWithLetter.Text = "Begins with a letter";
+            BeginsWithLetter.UseVisualStyleBackColor = true;
             // 
             // IncludeUpperCase
             // 
             IncludeUpperCase.AutoSize = true;
             IncludeUpperCase.Checked = true;
             IncludeUpperCase.CheckState = CheckState.Checked;
-            IncludeUpperCase.Location = new Point(15, 127);
+            IncludeUpperCase.Location = new Point(15, 123);
             IncludeUpperCase.Margin = new Padding(4);
             IncludeUpperCase.Name = "IncludeUpperCase";
             IncludeUpperCase.Size = new Size(202, 25);
@@ -102,7 +102,7 @@
             IncludeLowerCase.AutoSize = true;
             IncludeLowerCase.Checked = true;
             IncludeLowerCase.CheckState = CheckState.Checked;
-            IncludeLowerCase.Location = new Point(15, 92);
+            IncludeLowerCase.Location = new Point(15, 90);
             IncludeLowerCase.Margin = new Padding(4);
             IncludeLowerCase.Name = "IncludeLowerCase";
             IncludeLowerCase.Size = new Size(198, 25);
@@ -113,7 +113,7 @@
             // IncludeSymbols
             // 
             IncludeSymbols.AutoSize = true;
-            IncludeSymbols.Location = new Point(15, 197);
+            IncludeSymbols.Location = new Point(15, 156);
             IncludeSymbols.Margin = new Padding(4);
             IncludeSymbols.Name = "IncludeSymbols";
             IncludeSymbols.Size = new Size(143, 25);
@@ -126,7 +126,7 @@
             NoSimilarCharacters.AutoSize = true;
             NoSimilarCharacters.Checked = true;
             NoSimilarCharacters.CheckState = CheckState.Checked;
-            NoSimilarCharacters.Location = new Point(15, 232);
+            NoSimilarCharacters.Location = new Point(15, 222);
             NoSimilarCharacters.Margin = new Padding(4);
             NoSimilarCharacters.Name = "NoSimilarCharacters";
             NoSimilarCharacters.Size = new Size(292, 25);
@@ -139,7 +139,7 @@
             NoDuplicateCharacters.AutoSize = true;
             NoDuplicateCharacters.Checked = true;
             NoDuplicateCharacters.CheckState = CheckState.Checked;
-            NoDuplicateCharacters.Location = new Point(15, 267);
+            NoDuplicateCharacters.Location = new Point(15, 255);
             NoDuplicateCharacters.Margin = new Padding(4);
             NoDuplicateCharacters.Name = "NoDuplicateCharacters";
             NoDuplicateCharacters.Size = new Size(197, 25);
@@ -152,7 +152,7 @@
             NoSequentialCharacters.AutoSize = true;
             NoSequentialCharacters.Checked = true;
             NoSequentialCharacters.CheckState = CheckState.Checked;
-            NoSequentialCharacters.Location = new Point(15, 302);
+            NoSequentialCharacters.Location = new Point(15, 288);
             NoSequentialCharacters.Margin = new Padding(4);
             NoSequentialCharacters.Name = "NoSequentialCharacters";
             NoSequentialCharacters.Size = new Size(299, 25);
@@ -163,7 +163,7 @@
             // SymbolsToInclude
             // 
             SymbolsToInclude.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SymbolsToInclude.Location = new Point(166, 195);
+            SymbolsToInclude.Location = new Point(166, 156);
             SymbolsToInclude.Margin = new Padding(4);
             SymbolsToInclude.Name = "SymbolsToInclude";
             SymbolsToInclude.Size = new Size(325, 26);
@@ -172,7 +172,7 @@
             // 
             // Generate
             // 
-            Generate.Location = new Point(601, 302);
+            Generate.Location = new Point(395, 283);
             Generate.Margin = new Padding(4);
             Generate.Name = "Generate";
             Generate.Size = new Size(96, 32);
@@ -183,13 +183,13 @@
             // 
             // Result
             // 
-            Result.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Result.Location = new Point(13, 358);
+            Result.Font = new Font("Consolas", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Result.Location = new Point(13, 323);
             Result.Margin = new Padding(4);
             Result.Multiline = true;
             Result.Name = "Result";
             Result.ScrollBars = ScrollBars.Both;
-            Result.Size = new Size(684, 158);
+            Result.Size = new Size(478, 193);
             Result.TabIndex = 11;
             // 
             // Quantity
@@ -225,7 +225,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(714, 535);
+            ClientSize = new Size(510, 535);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(Quantity);
@@ -238,11 +238,14 @@
             Controls.Add(IncludeSymbols);
             Controls.Add(IncludeLowerCase);
             Controls.Add(IncludeUpperCase);
-            Controls.Add(BeginWithLetter);
+            Controls.Add(BeginsWithLetter);
             Controls.Add(PasswordLength);
             Controls.Add(IncludeNumbers);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Main";
             Text = "Mike's Random Password Generator";
             ((System.ComponentModel.ISupportInitialize)PasswordLength).EndInit();
@@ -255,7 +258,7 @@
 
         private CheckBox IncludeNumbers;
         private NumericUpDown PasswordLength;
-        private CheckBox BeginWithLetter;
+        private CheckBox BeginsWithLetter;
         private CheckBox IncludeUpperCase;
         private CheckBox IncludeLowerCase;
         private CheckBox IncludeSymbols;

@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Text;
-using PasswordGenerator;
 
 namespace RandomPasswordGenerator
 {
@@ -13,19 +12,20 @@ namespace RandomPasswordGenerator
 
         private void Generate_Click(object sender, EventArgs e)
         {
-            var settings = new PasswordSettings(IncludeLowerCase.Checked, IncludeUpperCase.Checked, IncludeNumbers.Checked, IncludeSymbols.Checked,
-                int.Parse(PasswordLength.Text), 5, false);
-
-            //settings.CharacterSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-            if (IncludeSymbols.Checked)
+            var pwd = new Password
             {
-                settings.AddSpecial(SymbolsToInclude.Text);
-            }
+                IncludeLowerCase = IncludeLowerCase.Checked,
+                IncludeUpperCase = IncludeUpperCase.Checked,
+                IncludeNumbers = IncludeNumbers.Checked,
+                IncludeSymbols = IncludeSymbols.Checked,
+                Length = int.Parse(PasswordLength.Text),
+                NoDuplicateCharacters = NoDuplicateCharacters.Checked,
+                NoSequentialCharacters = NoSequentialCharacters.Checked,
+                NoSimilarCharacters = NoSimilarCharacters.Checked,
+                BeginsWithLetter = BeginsWithLetter.Checked,
+                Symbols = SymbolsToInclude.Text
+            };
 
-            var available = settings.CharacterSet;
-
-            var pwd = new Password(settings);
             var quantity = int.Parse(Quantity.Text);
             var sb = new StringBuilder();
 
@@ -33,7 +33,7 @@ namespace RandomPasswordGenerator
             {
                 var password = pwd.Next();
                 Debug.WriteLine(password);
-                if (password != null && password != "Try again")
+                if (!string.IsNullOrWhiteSpace(password))
                 {
                     sb.AppendLine(password);
                     quantity--;
