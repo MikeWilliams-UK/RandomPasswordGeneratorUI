@@ -117,9 +117,9 @@
             IncludeSymbols.Location = new Point(15, 156);
             IncludeSymbols.Margin = new Padding(4);
             IncludeSymbols.Name = "IncludeSymbols";
-            IncludeSymbols.Size = new Size(143, 25);
+            IncludeSymbols.Size = new Size(141, 25);
             IncludeSymbols.TabIndex = 5;
-            IncludeSymbols.Text = "Include Symbols";
+            IncludeSymbols.Text = "Include symbols";
             IncludeSymbols.UseVisualStyleBackColor = true;
             // 
             // NoSimilarCharacters
@@ -130,9 +130,9 @@
             NoSimilarCharacters.Location = new Point(15, 222);
             NoSimilarCharacters.Margin = new Padding(4);
             NoSimilarCharacters.Name = "NoSimilarCharacters";
-            NoSimilarCharacters.Size = new Size(292, 25);
+            NoSimilarCharacters.Size = new Size(287, 25);
             NoSimilarCharacters.TabIndex = 6;
-            NoSimilarCharacters.Text = "No Similar Characters (i, l, 1, L, o, 0, O)";
+            NoSimilarCharacters.Text = "No similar characters (i, l, 1, L, o, 0, O)";
             NoSimilarCharacters.UseVisualStyleBackColor = true;
             // 
             // NoDuplicateCharacters
@@ -143,9 +143,9 @@
             NoDuplicateCharacters.Location = new Point(15, 255);
             NoDuplicateCharacters.Margin = new Padding(4);
             NoDuplicateCharacters.Name = "NoDuplicateCharacters";
-            NoDuplicateCharacters.Size = new Size(197, 25);
+            NoDuplicateCharacters.Size = new Size(346, 25);
             NoDuplicateCharacters.TabIndex = 7;
-            NoDuplicateCharacters.Text = "No Duplicate Characters";
+            NoDuplicateCharacters.Text = "No repeated identical characters (i.e. aaa, bbb)";
             NoDuplicateCharacters.UseVisualStyleBackColor = true;
             // 
             // NoSequentialCharacters
@@ -156,9 +156,9 @@
             NoSequentialCharacters.Location = new Point(15, 288);
             NoSequentialCharacters.Margin = new Padding(4);
             NoSequentialCharacters.Name = "NoSequentialCharacters";
-            NoSequentialCharacters.Size = new Size(299, 25);
+            NoSequentialCharacters.Size = new Size(294, 25);
             NoSequentialCharacters.TabIndex = 8;
-            NoSequentialCharacters.Text = "No Sequential Characters (i.e. 123, abc)";
+            NoSequentialCharacters.Text = "No sequential characters (i.e. 123, abc)";
             NoSequentialCharacters.UseVisualStyleBackColor = true;
             // 
             // SymbolsToInclude
