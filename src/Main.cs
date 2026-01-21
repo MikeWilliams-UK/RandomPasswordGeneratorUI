@@ -19,8 +19,8 @@ namespace RandomPasswordGenerator
                 IncludeNumbers = IncludeNumbers.Checked,
                 IncludeSymbols = IncludeSymbols.Checked,
                 Length = int.Parse(PasswordLength.Text),
-                NoDuplicateCharacters = NoDuplicateCharacters.Checked,
-                NoSequentialCharacters = NoSequentialCharacters.Checked,
+                NoConsecutiveRepeatedCharacters = NoDuplicateCharacters.Checked,
+                NoConsecutiveSequentialCharacters = NoSequentialCharacters.Checked,
                 NoSimilarCharacters = NoSimilarCharacters.Checked,
                 BeginsWithLetter = BeginsWithLetter.Checked,
                 Symbols = SymbolsToInclude.Text
@@ -32,9 +32,9 @@ namespace RandomPasswordGenerator
             while (quantity > 0)
             {
                 var password = pwd.Next();
-                Debug.WriteLine(password);
                 if (!string.IsNullOrWhiteSpace(password))
                 {
+                    Debug.WriteLine(password);
                     sb.AppendLine(password);
                     quantity--;
                 }

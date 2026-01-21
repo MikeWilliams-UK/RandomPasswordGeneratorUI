@@ -13,8 +13,8 @@ public class Password
     public bool IncludeSymbols { get; set; }
     public string Symbols { get; set; }
     public bool NoSimilarCharacters { get; set; }
-    public bool NoSequentialCharacters { get; set; }
-    public bool NoDuplicateCharacters { get; set; }
+    public bool NoConsecutiveSequentialCharacters { get; set; }
+    public bool NoConsecutiveRepeatedCharacters { get; set; }
     public bool BeginsWithLetter { get; set; }
 
     private static RandomNumberGenerator _rng;
@@ -38,7 +38,7 @@ public class Password
 
                 if (consecutiveCount > 2)
                 {
-                    // If more than two consecutive repeated characters are found, return true
+                    // If two or more consecutive repeated characters are found, return true
                     return true;
                 }
             }
@@ -52,11 +52,11 @@ public class Password
         return false;
     }
 
-    private bool ContainsMoreThanTwoSequentialCharacters(string input)
+    private bool ContainsMoreThanTwoConsecutiveSequentialCharacters(string input)
     {
-        int sequentialCount = 1;
+        var sequentialCount = 1;
 
-        for (int i = 1; i < input.Length; i++)
+        for (var i = 1; i < input.Length; i++)
         {
             if (IsSequential(input[i - 1], input[i]))
             {
@@ -64,7 +64,7 @@ public class Password
 
                 if (sequentialCount > 2)
                 {
-                    // If more than two sequential characters are found, return true
+                    // If two or more sequential characters are found, return true
                     return true;
                 }
             }
@@ -88,8 +88,6 @@ public class Password
 
     public string Next()
     {
-        var lettersAllowed = IncludeLowerCase || IncludeUpperCase;
-
         var stringBuilder = new StringBuilder();
         if (IncludeNumbers)
         {
@@ -131,36 +129,66 @@ public class Password
             password[characterPosition] = available[GetRandomNumberInRange(0, max - 1)];
         }
 
-        Debug.WriteLine(available);
+        //Debug.WriteLine(available);
+
         var result = string.Join(null, password);
 
-        if (NoDuplicateCharacters)
+        if (!string.IsNullOrWhiteSpace(result) && NoConsecutiveRepeatedCharacters)
         {
             if (ContainsMoreThanTwoConsecutiveRepeatedCharacters(result))
             {
-                Debug.WriteLine("result cleared - More Than Two Consecutive Repeated Characters !");
+                Debug.WriteLine($" * result cleared - '{result}' - Two or more consecutive repeated characters.");
                 result = string.Empty;
             }
         }
 
-        if (NoSequentialCharacters)
+        if (!string.IsNullOrWhiteSpace(result) && NoConsecutiveSequentialCharacters)
         {
-            if (ContainsMoreThanTwoSequentialCharacters(result))
+            if (ContainsMoreThanTwoConsecutiveSequentialCharacters(result))
             {
-                Debug.WriteLine("result cleared - More Than Two Sequential Characters !");
+                Debug.WriteLine($" * result cleared - '{result}' - Two or more sequential Characters.");
                 result = string.Empty;
             }
         }
 
-        if (BeginsWithLetter && lettersAllowed)
+        if (!string.IsNullOrWhiteSpace(result) && IncludeNumbers)
+        {
+            if (!result.Any(char.IsDigit))
+            {
+                Debug.WriteLine($" * result cleared - '{result}' - Did not include a digit.");
+                result = string.Empty;
+            }
+        }
+
+        var lettersIncluded = IncludeLowerCase || IncludeUpperCase;
+
+        if (!string.IsNullOrWhiteSpace(result) && BeginsWithLetter && lettersIncluded)
         {
             if (result.Length > 0)
             {
                 if (!char.IsLetter(result[0]))
                 {
-                    Debug.WriteLine("result cleared - Did not begin with a letter");
+                    Debug.WriteLine($" * result cleared - '{result}' - Did not begin with a letter.");
                     result = string.Empty;
                 }
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(result) && IncludeLowerCase)
+        {
+            if (!result.Any(char.IsLower))
+            {
+                Debug.WriteLine($" * result cleared - '{result}' - Did not include a lower case letter.");
+                result = string.Empty;
+            }
+        }
+
+        if (!string.IsNullOrWhiteSpace(result) && IncludeUpperCase)
+        {
+            if (!result.Any(char.IsUpper))
+            {
+                Debug.WriteLine($" * result cleared - '{result}' - Did not include a upper case letter");
+                result = string.Empty;
             }
         }
 

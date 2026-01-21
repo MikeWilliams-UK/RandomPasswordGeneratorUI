@@ -135,7 +135,7 @@
             NoSimilarCharacters.Text = "No similar characters (i, l, 1, L, o, 0, O)";
             NoSimilarCharacters.UseVisualStyleBackColor = true;
             // 
-            // NoDuplicateCharacters
+            // NoConsecutiveRepeatedCharacters
             // 
             NoDuplicateCharacters.AutoSize = true;
             NoDuplicateCharacters.Checked = true;
@@ -148,7 +148,7 @@
             NoDuplicateCharacters.Text = "No repeated identical characters (i.e. aaa, bbb)";
             NoDuplicateCharacters.UseVisualStyleBackColor = true;
             // 
-            // NoSequentialCharacters
+            // NoConsecutiveSequentialCharacters
             // 
             NoSequentialCharacters.AutoSize = true;
             NoSequentialCharacters.Checked = true;
