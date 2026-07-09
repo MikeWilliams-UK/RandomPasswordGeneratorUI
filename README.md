@@ -1,5 +1,4 @@
-# RandomPasswordGenratorUI
-A UI for https://github.com/prjseal/PasswordGenerator
+# RandomPasswordGeneratorUI
 
 - If you like my work, please consider donating at https://www.buymeacoffee.com/mikewilliamsuk
 
